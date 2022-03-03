@@ -14,14 +14,13 @@ from collections import defaultdict
 # a large controls company says this will help them support haystack
 
 g = brickschema.Graph()
-g.load_file("../../Brick.ttl")
+g.load_file("Brick.ttl")
 #g.load_file("haystack_proto_map.ttl")
 #g.load_file("oap_map.ttl")
 #g.load_file("brick_tag_map.ttl")
 g.load_file("simple_map.ttl")
-g.load_file("../../examples/g36/g36-vav-a2.ttl")
+g.load_file("g36-ahu-a9.ttl")
 g.expand("shacl")
-g.serialize('/tmp/test.ttl', format='turtle')
 
 def find_entities(tags):
     clauses = [

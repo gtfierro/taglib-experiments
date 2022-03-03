@@ -10,7 +10,7 @@ BLDG = Namespace("urn:bldg#")
 
 ph = brickschema.GraphCollection()
 ph.load_graph("simple_map.ttl", graph_name=URIRef("urn:tagmap#"))
-ph.load_graph("../../Brick.ttl")
+ph.load_graph("Brick.ttl")
 
 model = ph.get_context(BLDG)
 filename = sys.argv[1]
@@ -31,7 +31,7 @@ for ent in phmodel:
 model.serialize('/tmp/out.ttl', format='turtle')
 ph.expand("shacl")
 
-res = ph.query("SELECT DISTINCT ?ent WHERE { ?ent rdf:type/rdfs:subClassOf* brick:Entity }")
+res = ph.query("SELECT DISTINCT ?ent WHERE { ?ent rdf:type/rdfs:subClassOf* brick:Entity . FILTER NOT EXISTS { ?ent rdf:type/rdfs:subClassOf* brick:Measurable } }")
 brickified = brickschema.Graph()
 for row in res:
     if row[0] not in model.all_nodes():
