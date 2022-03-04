@@ -2,6 +2,8 @@
 
 This repository contains experiments exploring how to align Brick and Project Haystack.
 
+## Feature Overview
+
 ### Generate Tag Shims
 
 Tag shims are RDF graphs of SHACL shapes which provide bi-directional translation between Brick classes/shapes and Haystack tag sets/protos.
@@ -132,3 +134,45 @@ urn:bldg#sats_ahu1
 ]
 ```
 
+## Implementation Notes
+
+The goal of the technical implementation is to establish a *shared vocabulary* that can serve as the point of interoperability between Brick and Haystack.
+Each term in the vocabulary is implemented as a class or shape in Brick, and as a proto in Haystack.
+
+
+A Haystack proto is related to a Brick class when there is a 1-1 relationship between the two concepts.
+For example, the `supply air temp sensor point` proto in Haystack is equivalent to the `brick:Supply_Air_Temperature_Sensor` class in Brick.
+The `discharge hot water heat valve cmd point` proto in Haystack must be represented as multiple entities in Brick, so this would not be suitable to relate to a Brick class and must be handled as a shape.
+We cover both of these cases below, starting with simple 1-1 mappings.
+
+### Simple Mappings
+
+To implement the 1-1 mapping between Brick classes and Haystack protos, we take as input a mapping table such as the one in `simple_map.py` and output an RDF graph (the so-called "tag shim") containing two kinds of rules for each proto-to-class mapping.
+
+The first kind of rule (Brick to Haystack) *produces*, for each Brick entity, the tags comprising the relevant Haystack proto.
+
+```ttl
+bldg:abc a brick:Supply_Air_Temperature_Sensor ;
+    # these are all inferred automatically
+    brick:hasTag "air", "temp", "sensor", "supply", "point" .
+```
+It is a straightforward transformation to produce the Haystack-compatible serialization of the model by querying the tags for each entity\footnote{We are not yet considering how to handle `ref` tags and `value` tags but they can be incorporated into this framework.}.
+
+The second kind of rule (Haystack to Brick) *produces* a Brick class for each entity in the graph with an appropriate set of tags:
+
+```ttl
+bldg:abc brick:hasTag "air", "temp", "sensor", "supply", "point" ;
+   # this is inferred automatically
+   a brick:Supply_Air_Temperature_Sensor .
+```
+
+For these rules to be executed, a Haystack model must be represented as an RDF graph.
+Luckily this is looks to be very straightforward: to start, all marker tags become the objects of `brick:hasTag` relationships and all ref tags are translated to their Brick equivalents.
+Once in an RDF representation, our rules can perform the actual translation work on the model.
+
+### Complex Mappings
+
+For cases where there is not a 1-1 relationship between a Haystack proto and a Brick class, it is necessary to figure out how the concept in one is represented in the other[^1].
+The complex representation can be specified as a SHACL shape, which is a set of constraints defining what information/properties/types should be associated with an entity.a
+
+[^1]: From initial experience, it seems that some Haystack protos will map to multiple Brick entities and not the other way around.
