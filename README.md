@@ -264,7 +264,7 @@ This takes advantage of a "hack" which asserts entities to be "instances" of the
 For these rules to be executed, a Haystack model must be represented as an RDF graph.
 Luckily this is looks to be very straightforward: to start, all marker tags become the objects of `brick:hasTag` relationships and all ref tags are translated to their Brick equivalents.
 
-[^2]: See Chapter 4 (specifically section 4.3 and 4.4) of  [my thesis](https://home.gtf.fyi/papers/fierro-dissertation.pdf) for an explanation as to "why". Essentially, due to tags like "min" and "max", the "subclass" hierarchy for protos is not equivalent to the lattice defined by a strict subset relationship between tagsets.
+[^2]: See Chapter 4 (specifically section 4.3 and 4.4) of [my thesis](https://home.gtf.fyi/papers/fierro-dissertation.pdf) for an explanation as to "why". Essentially, due to tags like "min" and "max", the "subclass" hierarchy for protos is not equivalent to the lattice defined by a strict subset relationship between tagsets.
 
 #### Example
 
