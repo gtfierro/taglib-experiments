@@ -1,0 +1,37 @@
+Equipment:
+  definition: "Some text here..."
+  brick: https://brickschema.org/schema/Brick#Equipment
+  proto: equip
+  children:
+    Air Handling Unit:
+      definition: "Assembly consisting of sections containing a fan or fans and other necessary equipment to perform one or more of the following functions: circulating, filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing of air. Is usually connected to an air-distribution system."
+      brick: https://brickschema.org/schema/Brick#AHU
+      proto: ahu-equip
+    Heat Exchanger:
+      definition: "A heat exchanger is a piece of equipment built for efficient heat transfer from one medium to another. The media may be separated by a solid wall to prevent mixing or they may be in direct contact (BEDES)"
+      brick: https://brickschema.org/schema/Brick#Heat_Exchanger
+      proto: heatExchanger-equip
+    Chiller:
+      definition: "Refrigerating machine used to transfer heat between fluids. Chillers are either direct expansion with a compressor or absorption type."
+      brick: https://brickschema.org/schema/Brick#Chiller
+      proto: chiller-equip
+    Coil:
+      definition: "Cooling or heating element made of pipe or tube that may or may not be finned and formed into helical or serpentine shape (ASHRAE Dictionary)"
+      brick: https://brickschema.org/schema/Brick#Coil
+      children:
+        Cooling Coil:
+          definition: "A cooling element made of pipe or tube that removes heat from equipment, machines or airflows. Typically filled with either refrigerant or cold water."
+          brick: https://brickschema.org/schema/Brick#Cooling_Coil
+          proto: coolingCoil-equip
+        Heating Coil:
+          definition: "A heating element typically made of pipe, tube or wire that emits heat. Typically filled with hot water, or, in the case of wire, uses electricity."
+          brick: https://brickschema.org/schema/Brick#Heating_Coil
+          proto: heatingCoil-equip
+    Cooling Tower:
+      definition: "A cooling tower is a heat rejection device that rejects waste heat to the atmosphere through the cooling of a water stream to a lower temperature. Cooling towers may either use the evaporation of water to remove process heat and cool the working fluid to near the wet-bulb air temperature or, in the case of closed circuit dry cooling towers, rely solely on air to cool the working fluid to near the dry-bulb air temperature."
+      brick: https://brickschema.org/schema/Brick#Cooling_Tower
+      proto: coolingTower-equip
+    Economizer:
+      definiton: "Device that, on proper variable sensing, initiates control signals or actions to conserve energy. A control system that reduces the mechanical heating and cooling requirement."
+      brick: https://brickschema.org/schema/Brick#Economizer
+      proto: economizer-equip
