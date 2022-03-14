@@ -7,7 +7,8 @@ results = []
 
 def filter_by_tags(tags):
     for defn in ph.values():
-        if all(tag in defn['tags'] for tag in tags):
+        if all(tag in defn['tags'] for tag in tags) and \
+           (len(defn['tags']) == len(tags) + 1):
             yield defn
 
 
