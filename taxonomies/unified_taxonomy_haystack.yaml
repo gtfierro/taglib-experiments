@@ -1,0 +1,61 @@
+ahu-equip:
+  brick: https://brickschema.org/schema/Brick#AHU
+  definition: 'Assembly consisting of sections containing a fan or fans and other
+    necessary equipment to perform one or more of the following functions: circulating,
+    filtration, heating, cooling, heat recovery, humidifying, dehumidifying, and mixing
+    of air. Is usually connected to an air-distribution system.'
+  parent: Equipment
+  proto: ahu-equip
+
+chiller-equip:
+  brick: https://brickschema.org/schema/Brick#Chiller
+  definition: Refrigerating machine used to transfer heat between fluids. Chillers
+    are either direct expansion with a compressor or absorption type.
+  parent: Equipment
+  proto: chiller-equip
+
+coolingCoil-equip:
+  brick: https://brickschema.org/schema/Brick#Cooling_Coil
+  definition: A cooling element made of pipe or tube that removes heat from equipment,
+    machines or airflows. Typically filled with either refrigerant or cold water.
+  parent: Coil
+  proto: coolingCoil-equip
+
+coolingTower-equip:
+  brick: https://brickschema.org/schema/Brick#Cooling_Tower
+  definition: A cooling tower is a heat rejection device that rejects waste heat to
+    the atmosphere through the cooling of a water stream to a lower temperature. Cooling
+    towers may either use the evaporation of water to remove process heat and cool
+    the working fluid to near the wet-bulb air temperature or, in the case of closed
+    circuit dry cooling towers, rely solely on air to cool the working fluid to near
+    the dry-bulb air temperature.
+  parent: Equipment
+  proto: coolingTower-equip
+
+economizer-equip:
+  brick: https://brickschema.org/schema/Brick#Economizer
+  definiton: Device that, on proper variable sensing, initiates control signals or
+    actions to conserve energy. A control system that reduces the mechanical heating
+    and cooling requirement.
+  parent: Equipment
+  proto: economizer-equip
+
+equip:
+  brick: https://brickschema.org/schema/Brick#Equipment
+  definition: Some text here...
+  proto: equip
+
+heatExchanger-equip:
+  brick: https://brickschema.org/schema/Brick#Heat_Exchanger
+  definition: A heat exchanger is a piece of equipment built for efficient heat transfer
+    from one medium to another. The media may be separated by a solid wall to prevent
+    mixing or they may be in direct contact (BEDES)
+  parent: Equipment
+  proto: heatExchanger-equip
+
+heatingCoil-equip:
+  brick: https://brickschema.org/schema/Brick#Heating_Coil
+  definition: A heating element typically made of pipe, tube or wire that emits heat.
+    Typically filled with hot water, or, in the case of wire, uses electricity.
+  parent: Coil
+  proto: heatingCoil-equip
