@@ -19,6 +19,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bsh:AC_Electrical_Meter a sh:NodeShape, owl:Class ;
+    rdfs:subClassOf brick:Electrical_Meter ;
     sh:rule [
       a sh:SPARQLRule ;
       sh:construct """CONSTRUCT {
@@ -29,6 +30,7 @@ bsh:AC_Electrical_Meter a sh:NodeShape, owl:Class ;
 .
 
 bsh:DC_Electrical_Meter a sh:NodeShape, owl:Class ;
+    rdfs:subClassOf brick:Electrical_Meter ;
     sh:rule [
       a sh:SPARQLRule ;
       sh:construct """CONSTRUCT {
@@ -39,6 +41,7 @@ bsh:DC_Electrical_Meter a sh:NodeShape, owl:Class ;
 .
 
 bsh:Fan_Motor a sh:NodeShape, owl:Class ;
+    rdfs:subClassOf brick:Motor ;
     sh:property [
       sh:path brick:isPartOf ;
       sh:qualifiedValueShape [ sh:class brick:Fan ] ;
@@ -47,6 +50,7 @@ bsh:Fan_Motor a sh:NodeShape, owl:Class ;
 .
 
 bsh:Pump_Motor a sh:NodeShape, owl:Class ;
+    rdfs:subClassOf brick:Motor ;
     sh:property [
       sh:path brick:isPartOf ;
       sh:qualifiedValueShape [ sh:class brick:Pump ] ;
