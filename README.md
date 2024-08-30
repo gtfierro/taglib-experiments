@@ -1,3 +1,5 @@
+**Check out https://github.com/gtfierro/Brick-Haystack-harmonization instead for more up-to-date efforts**
+
 # TagLib
 
 This repository contains experiments exploring how to align Brick and Project Haystack.
